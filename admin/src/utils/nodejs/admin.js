@@ -1,5 +1,5 @@
 // const API = 'http://localhost:8005/admin';
-const API = 'https://mhyrastudycentre.com/admin'
+const API = 'https://api.mhyrastudycentre.com/admin'
 
 
 async function httpCreateAdmin (adminCred) {
