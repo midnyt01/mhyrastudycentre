@@ -1,0 +1,31 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { GlobalProvider } from "./context/global.context";
+import { CoursesProvider } from "./context/courses.context";
+import "./font/Algeria/ALGERIA.TTF"
+import "./font/Roboto/Roboto-Bold.ttf"
+import "./font/Roboto/Roboto-Regular.ttf"
+// import "./brush script mt kursiv.ttf"
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <GlobalProvider>
+          <CoursesProvider>
+            <App />
+          </CoursesProvider>
+      </GlobalProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
