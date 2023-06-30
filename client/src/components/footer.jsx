@@ -139,7 +139,7 @@ const Footer = () => {
             <LinkHeader>Contacts</LinkHeader>
             <LinkItem href="/">
               {" "}
-              <FontAwesomeIcon icon={faPhone} style={{marginRight: '10px'}} /> 8788080376, 9890788729{" "}
+              <FontAwesomeIcon icon={faPhone} style={{marginRight: '10px'}} /><a href="tel:9890788729"> 8788080376, 9890788729{" "}</a>
             </LinkItem>
             <LinkItem href="/">
               {" "}
@@ -147,7 +147,7 @@ const Footer = () => {
             </LinkItem>
             <LinkItem href="/">
               {" "}
-              <FontAwesomeIcon icon={faLocation} style={{marginRight: '10px'}} />Plot 22, 2nd Floor, Above Canara Bank, Friends Colony, Katol Rd Nagpur- 440013
+              <FontAwesomeIcon icon={faLocation} style={{marginRight: '10px'}} /><a href="https://www.google.com/maps/place/Friends+Colony,+KT+Nagar,+Nagpur,+Maharashtra+440013/@21.174409,79.0383259,17z/data=!3m1!4b1!4m10!1m2!2m1!1sPlot+22,+2nd+Floor,+Above+Canara+Bank,+Friends+Colony,+Katol+Rd+Nagpur-+440013!3m6!1s0x3bd4c1b7a255bfcf:0x395f022fccccd3c7!8m2!3d21.1736783!4d79.0427069!15sCk5QbG90IDIyLCAybmQgRmxvb3IsIEFib3ZlIENhbmFyYSBCYW5rLCBGcmllbmRzIENvbG9ueSwgS2F0b2wgUmQgTmFncHVyLSA0NDAwMTMiA4gBAZIBDG5laWdoYm9yaG9vZOABAA!16s%2Fg%2F1pzr1wg33?entry=ttu">Plot 22, 2nd Floor, Above Canara Bank, Friends Colony, Katol Rd Nagpur- 440013</a>
             </LinkItem>
           </SectionWrapper>
 

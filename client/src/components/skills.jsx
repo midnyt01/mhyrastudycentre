@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import BackgroundImage from "../assets/background.jpg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCubes, faSortAlphaAsc } from "@fortawesome/free-solid-svg-icons";
+import { faChartBar, faCubes, faIdBadge, faPencil, faSortAlphaAsc } from "@fortawesome/free-solid-svg-icons";
 import { Zoom, Fade } from "react-reveal";
+import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -183,20 +184,20 @@ const Skills = () => {
                         <RightItemContainer id={3} >
                             <HR />
                             <RightIconContainer>
-                                <FontAwesomeIcon icon={faSortAlphaAsc} size="2x" />
+                                <FontAwesomeIcon icon={faPencil} size="2x" />
                             </RightIconContainer>
                             <SkillName>Technical Expertise</SkillName>
                         </RightItemContainer >
                         <RightItemContainer  id={4}>
                             <RightIconContainer>
-                                <FontAwesomeIcon icon={faSortAlphaAsc} size="2x" />
+                            <FontAwesomeIcon icon={faChartBar} size="2x" />
                             </RightIconContainer>
                             <SkillName>Hands-on Training</SkillName>
                         </RightItemContainer>
                         <RightItemContainer id={5} >
                             <HR />
                             <RightIconContainer>
-                                <FontAwesomeIcon icon={faSortAlphaAsc} size="2x" />
+                                <FontAwesomeIcon icon={faCheckCircle} size="2x" />
                             </RightIconContainer>
                             <SkillName>Empowerment for Success</SkillName>
                         </RightItemContainer>

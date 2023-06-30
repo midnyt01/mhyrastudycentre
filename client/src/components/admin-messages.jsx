@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import AdminImage from "../assets/admin-image.jpeg";
-import AdminImage2 from "../assets/admin-image-2.jpg";
+import AdminImage from "../assets/director-1.jpg";
+import AdminImage1 from "../assets/director-2.jpg";
+import AdminImage2 from "../assets/admin-1.jpg";
 
 const Container = styled.div`
     width: 100%;
@@ -60,7 +61,7 @@ const AdminMessages = () => {
     <Container>
       <MessageContainer>
         <Header>
-            From the Director’s desk : Suyog Nildawar
+            From the Director’s desk
         </Header>
         <Wrapper>
           <ImageContainer>
@@ -84,11 +85,11 @@ const AdminMessages = () => {
 
       <MessageContainer>
         <Header>
-        From the Director’s desk: Vivek Gour
+        From the Director’s desk
         </Header>
         <Wrapper>
           <ImageContainer>
-            <img src={AdminImage} alt="admin-image" />
+            <img src={AdminImage1} alt="admin-image" />
           </ImageContainer>
           <InfoContainer>
             <Message>In today’s scenario, we face new challenges every day.  Thus one requires an innovative approach , deep sensitization , bonding with the children and never emphasis to address these challenges in the context of our rapidly expanding society. The constant endeavor is to shape tomorrow’s children’s into well balance, academy sound, morally upright individuals brimiming with confidence and competence. Our vision  is to educate a generation who will be model citizen, ready to face the challenges of tomorrow.
@@ -114,7 +115,7 @@ const AdminMessages = () => {
 
       <MessageContainer>
         <Header>
-        Administrator Speech : Reena Shah
+        Administrator Speech
         </Header>
         <Wrapper>
           <ImageContainer>

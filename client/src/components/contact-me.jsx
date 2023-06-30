@@ -255,7 +255,7 @@ const ContactMeForm = () => {
             </ContactForm>
         </Wrapper>
         <HR />
-        <SocialsContainer>
+        {/* <SocialsContainer>
             <SocialTitle>
                 Find us on social platforms
             </SocialTitle>
@@ -265,7 +265,7 @@ const ContactMeForm = () => {
                 <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
             </SocialWrapper>
-        </SocialsContainer>
+        </SocialsContainer> */}
     </Container>
   )
 }

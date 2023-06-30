@@ -163,6 +163,7 @@ svg {
 const DEFAULT_FORM_FIELD = {
     FullName: "",
     Standard:"",
+    PhoneNumber:"",
     SchoolName: "",
     Service: "",
 }
@@ -171,7 +172,7 @@ const DEFAULT_FORM_FIELD = {
 const SamplePaperForm = () => {
 
     const [formField, setFormField] = useState(DEFAULT_FORM_FIELD);
-    const {FullName, Standard, SchoolName, Service} = formField;
+    const {FullName, Standard,PhoneNumber, SchoolName, Service} = formField;
 
     const {addNotifiction} = useContext(GlobalContext)
 
@@ -223,8 +224,15 @@ const SamplePaperForm = () => {
                 />
                 <FormInput
                     placeholder="Standard"
-                    name="text"
+                    name="Standard"
                     value={Standard}
+                    onChange={handleOnChange}
+                />
+                <FormInput
+                    placeholder="Phone Number"
+                    name="PhoneNumber"
+                    type="number"
+                    value={PhoneNumber}
                     onChange={handleOnChange}
                 />
                 <FormInput

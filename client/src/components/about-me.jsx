@@ -120,7 +120,7 @@ const OPTIMISTIC_MOTIVATION = [
   {
     id: 1,
     Key: 'Panel Demanding Spot',
-    Point: 'The purpose of MSC is to help you to reach your potential W have incorporated academic sessions where we cover competitive studies & boards, to achieve students educational goals. ',
+    Point: 'The purpose of MSCPL is to help you reach your potential. We have incorporated academic sessions where competitive and respective board studies are combines so that students achieve the academic goals.',
     Icon: book,
   },
   {
@@ -138,13 +138,13 @@ const OPTIMISTIC_MOTIVATION = [
   {
     id: 4,
     Key: 'KNOWLEDGE IS POWER BUT PERSONALITY IS ELEMENTARY',
-    Point: 'Marks give you recognition for your good performance but a great personality provides respect for your career. Our organization works to develop sharpen your professional and personal skills in 360 manner. ',
+    Point: 'Marks give you recognition for your good performance but a great personality provides respect for your career. Our organization works to develop and sharpen. your professional with personal skills in 360° manner. ',
     Icon: optimism,
   },
   {
     id: 5,
     Key: 'Mentor ',
-    Point: 'Students get overwhelmed with hurdles & distractions, They might not always be prepared for them. We have a mentors who shares their knowledge and experience to inspire students to reach their goals and guide them in all stream. ',
+    Point: 'Students get overwhelmed with hurdles & distractions and might not always be prepared for them. We have a mentors who shares their knowledge and experience to inspire students to reach their goals and guide them in all stream. ',
     Icon: mentoring,
   },
   {
@@ -162,13 +162,13 @@ const OPTIMISTIC_MOTIVATION = [
   {
     id: 8,
     Key: 'BOC-HORD cum book house ',
-    Point: 'The Smart BOC-HORD concept is where we provide a safe space for students to socialize, independently work, use computers, access the intemet, use equipment & research materials & share & learn from each other. This area has considered silent zone for peaceful learning We provide them with a conceal foundation.  ',
+    Point: 'The Smart BOC-HORD concept is where we provide a safe space for students to socialize, independently work, use computers, access the intemet, use equipment & research materials and share & learn from each other. This area has been considered as a silent zone for peaceful learning We provide them with a conceal foundation.  ',
     Icon: book2,
   },
   {
     id: 9,
     Key: 'Escort outstanding up-shot ',
-    Point: 'We are delivering 65% to 70% selections in the most reputed IT and NIT intitutes Likewise we have been creating results for the topmost medical institution. ',
+    Point: 'We are delivering 65% to 70% selections in the most reputed IT and NIT intitutes, Likewise we have been creating results for the topmost medical institution. ',
     Icon: success,
   },
   {
@@ -180,7 +180,7 @@ const OPTIMISTIC_MOTIVATION = [
   {
     id: 11,
     Key: 'Discipline and Focal-point proceed hand in hand ',
-    Point: 'We are known for our disciplinary approach and efforts toward creating a value-based environment. Hence we emphasize students to not have any smartphones or distractive devices. Students are not to leave the premises without their parental consent and monitor their attendance with a blometric identification. ',
+    Point: 'We are known for our disciplinary approach and efforts toward creating a value-based environment. Hence we emphasize students not to have any smartphones or distractive devices. Students are not allowed to leave the premises without their parental consent and monitor their attendance with a blometric identification. ',
     Icon: discipline,
   },
   {

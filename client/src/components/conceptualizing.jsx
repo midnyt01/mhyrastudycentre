@@ -155,7 +155,7 @@ const Conceptualizing = () => {
       <Wrapper>
         <Heading>Conceptualizing Courses Easy way</Heading>
         <SubHeading>
-          A revolutionary approach that simplifies learning. Say goodbye to overwhelming content and hello to clarity! Our innovative method breaks down complex subjects into digestible concepts, making it effortless to grasp even the most challenging material. With interactive visuals, engaging activities, and concise explanations, our courses ensure a deep understanding of the subject matter. Unlock your potential and breeze through your studies with our user-friendly approach. Experience the joy of learning as you effortlessly absorb knowledge and achieve academic success. Discover the easy way to conceptualize courses today!
+        A revolutionary approach that simplifies learning: say goodbye to overwhelming content and hello to clarity! Our innovative method breaks down complex subjects into digestible concepts making it effortless to grasp even the most challenging material. With interactive visuals, engaging activities and concise explanations our courses ensure a deep understanding of the subject matter. Unlock your potential and breeze through your studies with our user-friendly approach. Experience the joy of learning as you effortlessly absorb knowledge and achieve academic success. Discover the easy way to conceptualize courses today!
         </SubHeading>
 
       <ContentWrapper>
@@ -170,7 +170,7 @@ const Conceptualizing = () => {
         <Slide bottom >
         <InfoCard>
             <FontAwesomeIcon icon={faBookAtlas} />
-          <InfoContainer>Better Strategies for sutrggling students</InfoContainer>
+          <InfoContainer>Better Strategies for struggling students</InfoContainer>
         </InfoCard>
           </Slide>
 
@@ -198,7 +198,7 @@ const Conceptualizing = () => {
         <Slide bottom >
         <InfoCard>
             <FontAwesomeIcon icon={faCertificate} />
-          <InfoContainer>Comprehensive study experties</InfoContainer>
+          <InfoContainer>Comprehensive study experts</InfoContainer>
         </InfoCard>
           </Slide>
       </CardContainer>

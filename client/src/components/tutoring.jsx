@@ -140,10 +140,10 @@ const Tutoring = () => {
                     This is the best course tutors that will be the next generation training session begins now.
                 </LeftSubHead>
                 <LeftContent>
-                  The majority have suffered alteration in some form, by injected humour, or randomise words which don't look even slightly believable.  
+                  The majority have suffered alteration in some form by injected humour or randomise words which don't look even slightly believable.  
                 </LeftContent>
                 <LeftButton onClick={handleOnClickRouteChange}>
-                    View Our Best Courses
+                    View Our Courses
                 </LeftButton>
             </LeftContainer>
             <RightContainer>
@@ -173,7 +173,7 @@ const Tutoring = () => {
                         <RightIconTitle>Practical Examples</RightIconTitle>
                     </RightIconWrapper>
                 </RightIconsContainer>
-                <RightContent>Our courses provide real-life scenarios, approved by universities, ensuring relevance and quality. Stay up-to-date with the latest syllabus, and grasp concepts effortlessly with practical examples. Take your learning to the next level with our dynamic and comprehensive approach.</RightContent>
+                <RightContent>Our courses provide real-life scenarios, approved by universities, ensuring relevance and quality. Stay up-to-date with the latest syllabus and grasp concepts effortlessly with practical examples. Take your learning to the next level with our dynamic and comprehensive approach.</RightContent>
             </RightContainer>
         </Wrapper>
     </Container>

@@ -13,7 +13,7 @@ const Container = styled.div`
   background-color: white;
   padding: 40px 20px;
   @media (min-width: 800px) {
-    width: 320px;
+    width: 400px;
   }
 `;
 
