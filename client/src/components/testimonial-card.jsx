@@ -8,7 +8,7 @@ import {
 import { Fade } from "react-reveal";
 
 const Container = styled.div`
-  width: 280px;
+  width: 80vw;
   margin: 10px 20px;
   background-color: white;
   padding: 40px 20px;

@@ -33,6 +33,21 @@ letter-spacing: 1px;
 }
 `;
 
+const DesktopSlider = styled.div`
+    display: none;
+    @media (min-width: 800px) {
+        display: inline;
+    }
+
+`;
+
+const MobileSlider = styled.div`
+    display: inline;
+    @media (min-width: 800px) {
+        display: none;
+    }
+`;
+
 const TestimoniesContainer = styled.div`
     margin-top: 50px;
     display: flex;
@@ -106,6 +121,31 @@ const Testimonials = () => {
         adaptiveHeight: false
       };
 
+      const settings1 = {
+        accessibility: true,
+        arrows: false,
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        // vertical: false,
+        initialSlide: 0,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: "ease",
+        draggable: true,
+        fade: false,
+        focusOnSelect: false,
+        pauseOnHover: true,
+        swipe: true,
+        touchMove: true,
+        touchThreshold: 5,
+        useCSS: true,
+        variableWidth: false,
+        adaptiveHeight: false
+      };
+
 
 
   return (
@@ -115,6 +155,7 @@ const Testimonials = () => {
                 What Parents And Students Say About Us
             </Title>
             {/* <TestimoniesContainer> */}
+            <DesktopSlider>
             <Slider {...settings}>
             <TestimonailCard />
             <TestimonailCard />
@@ -123,6 +164,17 @@ const Testimonials = () => {
             <TestimonailCard />
 
               </Slider>
+              </DesktopSlider>
+              <MobileSlider>
+            <Slider {...settings1}>
+            <TestimonailCard />
+            <TestimonailCard />
+            <TestimonailCard />
+            <TestimonailCard />
+            <TestimonailCard />
+
+              </Slider>
+              </MobileSlider>
                 {/* <TestimoniesWrapper>
                     {
                         TESTIMONIALS.map((testimonial) => {
