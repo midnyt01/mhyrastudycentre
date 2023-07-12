@@ -179,6 +179,31 @@ async function getAllCourse(callback) {
   })
 }
 
+async function setCourseInactive(CourseId, callback) {
+  let sql = `UPDATE courses SET IsActive = ${0} WHERE CourseId = ${CourseId}`
+  db.query(sql, function(err, result) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, {
+        success: true
+      });
+    }
+  })
+}
+async function setCourseActive(CourseId, callback) {
+  let sql = `UPDATE courses SET IsActive = ${1} WHERE CourseId = ${CourseId}`
+  db.query(sql, function(err, result) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, {
+        success: true
+      });
+    }
+  })
+}
+
 async function getCourseById(CourseId, callback) {
   let sql = `SELECT * FROM courses WHERE CourseId = ${CourseId} AND IsDeleted = ${0}`
   db.query(sql, function(err, result) {
@@ -398,7 +423,18 @@ async function getAllCustomers(callback) {
 
 
 async function getAllLeadsInfo (callback) {
-  let sql = 'SELECT * FROM leads';
+  let sql = `SELECT LeadId, FullName, Email, PhoneNumber, Course, Message FROM leads WHERE isDeleted = ${0}`;
+  db.query(sql, function(err, result) {
+    if (err) {
+      callback(err, null)
+    } else {
+      callback(null, result)
+    }
+  })
+}
+
+async function getAllSamplePaperQueries (callback) {
+  let sql = `SELECT StudentId, FullName, Standard, PhoneNumber, Course, SchoolName FROM sample_paper_queries WHERE isDeleted = ${0}`;
   db.query(sql, function(err, result) {
     if (err) {
       callback(err, null)
@@ -413,6 +449,8 @@ module.exports = {
   loginInAdmin,
   createNewCourse,
   getAllCourse,
+  setCourseInactive,
+  setCourseActive,
   getCourseById,
   updateCourseById,
   deleteCourseById,
@@ -421,4 +459,5 @@ module.exports = {
 
   getAllCustomers,
   getAllLeadsInfo,
+  getAllSamplePaperQueries,
 };

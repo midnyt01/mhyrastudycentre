@@ -6,7 +6,27 @@ import { GlobalContext } from "../context/global.context";
 import { makeid } from "../context/helper-functions";
 
 
-const Container = styled.div`
+import {
+    Button,
+    TextField,
+    Box,
+    Grid,
+    Typography,
+    Avatar,
+    Container,
+    CssBaseline,
+    Checkbox,
+    FormControlLabel,
+    Select,
+    MenuItem,
+    InputLabel,
+  } from "@mui/material";
+  import { useFormik } from "formik";
+import { SamplePaperSchema } from "../schema/schema.index";
+import { httpPostSamplePaperQuery } from "../utils/api";
+
+
+const MainContainer = styled.div`
     width: 90%;
     margin: auto;
     margin-top: 100px;
@@ -160,62 +180,98 @@ svg {
 
 `;
 
+
+const StyledBox = styled(Box)`
+  width: 100%;
+
+  div {
+    color: inherit;
+  }
+  label {
+    color: inherit;
+    z-index: 2;
+    font-family: Roboto-Regular !important;
+  }
+  input {
+    color: inherit;
+  }
+  fieldset {
+    border-color: black;
+  }
+
+  svg {
+    color: black;
+  }
+
+  @media (min-width: 800px) {
+    width: 100%;
+  }
+`;
+
 const DEFAULT_FORM_FIELD = {
     FullName: "",
     Standard:"",
     PhoneNumber:"",
     SchoolName: "",
-    Service: "",
+    Course: "none",
 }
+
+const courses = [
+    { label: "Class VIII", value: "classVIII" },
+    { label: "Class IX & X", value: "classIX&X" },
+    { label: "NEET", value: "neet" },
+    { label: "JEE", value: "jee" },
+  ];
 
 
 const SamplePaperForm = () => {
 
     const [formField, setFormField] = useState(DEFAULT_FORM_FIELD);
-    const {FullName, Standard,PhoneNumber, SchoolName, Service} = formField;
+    const [course, setCourse] = useState("");
+    const [message, setMessage] = useState(null);
 
     const {addNotifiction} = useContext(GlobalContext)
 
-
-    const clearFormFileds = () => {
-        setFormField(DEFAULT_FORM_FIELD)
+    function updateMessage (status, message) {
+      setMessage({
+        success: status,
+        text: message
+      });
+      setTimeout(() => {
+        setMessage(null);
+      }, 2500);
     }
 
-    const handleOnChange = (e) => {
-        const {name, value} = e.target;
-        setFormField({...formField, [name]: value})
-    }
-
-    const handleOnSubmitForm = async (e) => {
-        e.preventDefault();
-        try {
-            if(FullName.length == 0 || Service.length == 0) {
-                console.log('error page sample papers function handleOnSubmit form')
-                return;
-            }
-            // let response = await httpPostContactDetails(formField);
-            let response = {success: true}
+    const handleCourseChange = (e) => {
+        console.log(e.target.value);
+        setCourse(e.target.value);
+      };
+    
+      const { values, errors, touched,resetForm, handleBlur, handleChange, handleSubmit } =
+        useFormik({
+          initialValues: DEFAULT_FORM_FIELD,
+          validationSchema: SamplePaperSchema,
+          onSubmit: async (values) => {
+            console.log({ ...values, Course: course });
+            let response = await httpPostSamplePaperQuery({ ...values, Course: course });
             if (response.success) {
-                console.log(response)
-                addNotifiction(makeid(5), "success", "Thanks Contacting me!");
-                clearFormFileds();
+              updateMessage(true,"enquiry send successfully")
+              console.log("success")
             } else {
-                addNotifiction(makeid(5), "danger", "Will be redirected to App")
-                console.error('error in posting form details',response)
+              updateMessage(false,"error in sending enquiry, please try again later")
             }
-        } catch (error) {
-            addNotifiction(makeid(5), "danger", "Will be redirected to App")
-            console.error('error in contact posting',error)
-        }
-    }
+            resetForm(DEFAULT_FORM_FIELD)
+          },
+        });
 
   return (
-    <Container>
+    <MainContainer>
         <Wrapper>
             <Title>
                 Get Sample Papers
             </Title>
-            <ContactForm onSubmit={handleOnSubmitForm}>
+            {message && <p style={{textAlign: 'center', color: message.success ? 'green' : 'red'}}>{message.text}</p>}
+            {/* <ContactForm onSubmit={handleOnSubmitForm}>
                 <FormInput
                     placeholder="Full Name"
                     name="FullName"
@@ -249,7 +305,113 @@ const SamplePaperForm = () => {
                     <FormOption value="Leads">NEET</FormOption>
                 </FromSelect>
                 <SubmitButton>Get Sample Paper Now !</SubmitButton>
-            </ContactForm>
+            </ContactForm> */}
+                    <Container component="main" maxWidth="sm">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <StyledBox component="form" onSubmit={handleSubmit}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="FullName"
+                label="Full Name"
+                name="FullName"
+                autoComplete="full name"
+                type="text"
+                value={values.FullName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.FullName && Boolean(errors.FullName)}
+                helperText={touched.FullName && errors.FullName}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="Standard"
+                label="Standard"
+                name="Standard"
+                autoComplete="standard"
+                type="text"
+                value={values.Standard}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.Standard && Boolean(errors.Standard)}
+                helperText={touched.Standard && errors.Standard}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="PhoneNumber"
+                label="Phone Number"
+                name="PhoneNumber"
+                autoComplete="Phone number"
+                type="text"
+                value={values.PhoneNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.PhoneNumber && Boolean(errors.PhoneNumber)}
+                helperText={touched.PhoneNumber && errors.PhoneNumber}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="SchoolName"
+                label="School Name"
+                name="SchoolName"
+                autoComplete="School Name"
+                type="text"
+                value={values.SchoolName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={touched.SchoolName && Boolean(errors.SchoolName)}
+                helperText={touched.SchoolName && errors.SchoolName}
+                style={{ marginBottom: "1.5rem" }} // Add margin-bottom style
+              />
+              <Select
+                native
+                defaultValue="none"
+                value={course}
+                onChange={handleCourseChange}
+                fullWidth
+                margin="normal"
+                id="course"
+                name="course"
+                onBlur={handleBlur}
+                error={touched.Course && Boolean(errors.Course)}
+                helperText={touched.Course && errors.Course}
+                style={{ marginBottom: "1rem" }} // Add margin-bottom style
+              >
+                <option value="none">Select a Course</option>
+                {courses.map((course) => (
+                  <option key={course.value} value={course.value}>
+                    {course.label}
+                  </option>
+                ))}
+              </Select>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                <Button
+                type="submit"
+                variant="contained"
+                sx={{ mt: 3, mb: 2, textAlign: "center", fontSize: "1.2rem" }}
+              >
+                Get Sample Paper Now !
+              </Button>
+                </div>
+              
+            </StyledBox>
+          </Box>
+        </Container>
         </Wrapper>
         <HR />
         {/* <SocialsContainer>
@@ -263,7 +425,7 @@ const SamplePaperForm = () => {
                 <FontAwesomeIcon icon={faFacebook} size="2x" />
             </SocialWrapper>
         </SocialsContainer> */}
-    </Container>
+    </MainContainer>
   )
 }
 

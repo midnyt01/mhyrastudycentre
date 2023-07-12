@@ -84,7 +84,7 @@ const CourseCard = ({ course }) => {
       </ImageContainer>
       <InfoContainer>
         <CourseHead>{CourseTitle}</CourseHead>
-        <ActionButton>Enroll Now !</ActionButton>
+        <ActionButton>See Details</ActionButton>
       </InfoContainer>
     </Container>
   );

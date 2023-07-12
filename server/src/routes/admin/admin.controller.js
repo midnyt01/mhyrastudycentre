@@ -13,6 +13,9 @@ const {
   getCourseById,
   updateCourseById,
   deleteCourseById,
+  getAllSamplePaperQueries,
+  setCourseInactive,
+  setCourseActive,
 } = require("../../models/admin.model");
 
 async function httpCreateAdminAccount(req, res) {
@@ -47,6 +50,28 @@ async function httpCreateNewCourse(req, res) {
 
 async function httpGetAllCourses(req, res) {
   await getAllCourse(function (err, data) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+}
+
+async function httpSetCourseInactive(req, res) {
+  const CourseId = req.body.CourseId;
+  await setCourseInactive(CourseId, function (err, data) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+}
+
+async function httpSetCourseActive(req, res) {
+  const CourseId = req.body.CourseId;
+  await setCourseActive(CourseId, function (err, data) {
     if (err) {
       res.status(400).json(err);
     } else {
@@ -175,6 +200,16 @@ async function httpGetAllLeads (req, res) {
   })
 }
 
+async function httpGetAllSamplePaperQueries (req, res) {
+  await getAllSamplePaperQueries(function(err, data) {
+    if (err) {
+      res.status(400).json(err)
+    } else {
+      res.status(200).json(data)
+    }
+  })
+}
+
 
 async function httpUploadCourseCoverImage (req, res) {
   const url = req.file.path; // The URL of the uploaded image
@@ -193,6 +228,8 @@ module.exports = {
   httpLoginAdmin,
   httpCreateNewCourse,
   httpGetAllCourses,
+  httpSetCourseInactive,
+  httpSetCourseActive,
   httpGetCourseById,
   httpUpdateCourseById,
   httpDeleteCourseById,
@@ -208,6 +245,7 @@ module.exports = {
   // httpGetAllCaseStudies,
   httpGetAllCustomers,
   httpGetAllLeads,
+  httpGetAllSamplePaperQueries,
   httpUploadCourseCoverImage,
   httpUploadCaseStudyCoverImage,
 };

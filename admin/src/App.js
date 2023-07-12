@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 // Admin Panel
 import AdminPanel from "./routes/admin/admin-panel.component";
 import Adminlogin from "./routes/admin/admin-login/admin-login";
-import AdminCustomerPage from "./routes/admin/admin-customers/admin-customer-page.component";
 import BugreportPage from "./routes/admin/admin-panel-management/bug-reports";
 import EnquiryPage from "./routes/admin/admin-panel-management/enquiry";
 import SiteSettingPage from "./routes/admin/admin-panel-management/site-settings";
@@ -23,6 +22,7 @@ import CaseStudyPreivew from "./routes/admin/preview/case-study-preview.componen
 import UploadCourse from "./routes/admin/upload-course/upload-course";
 import AllCourses from "./routes/admin/see-all-course/see-all-courses";
 import EditCourse from "./routes/admin/edit-course";
+import AdminSamplePapers from "./routes/admin/admin-samplepapers/admin-sample-papercomponent";
 // import SellerCreateOrder from "./routes/seller/seller-create-order/seller-create-order.component";
 
 library.add(fas);
@@ -125,10 +125,10 @@ function App() {
         }
       />
       <Route
-        path="/admin-customer"
+        path="/admin-samplepaper"
         element={
           <ProtectedRoute>
-            <AdminCustomerPage />
+            <AdminSamplePapers />
           </ProtectedRoute>
         }
       />

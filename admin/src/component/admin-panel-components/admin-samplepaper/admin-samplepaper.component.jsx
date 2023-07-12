@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import styled from 'styled-components';
-import { CustomerColumn } from '../../../tabledata';
+import { StudentColumn } from '../../../tabledata';
 import { useState } from 'react';
 import ConfirmDelete from '../delete-confirm/delete-confirm.component';
 import { useContext } from 'react';
@@ -70,9 +70,9 @@ const DeleteCell = styled.div`
   cursor: pointer;
 `
 
-const AdminCustomer = () => {
-  const { customerRows, setCustomerRows } = useContext(CustomersContext);
-  console.log({customerRows})
+const SamplePaper = () => {
+  const { studentRows, setStudentRows } = useContext(CustomersContext);
+  console.log({studentRows})
 
   const [deleteId, setDeleteId] = useState(null);
   const [confirmDelete, setIsConfirmDelete] = useState(false);
@@ -84,44 +84,26 @@ const AdminCustomer = () => {
   };
 
   const handleConfirmDelete = () => {
-    setCustomerRows(customerRows.filter((item) => item.UserId !== deleteId));
+    setStudentRows(studentRows.filter((item) => item.StudentId !== deleteId));
     setIsConfirmDelete(false);
   }
   const handleCancleDelete = () => {
     setIsConfirmDelete(false);
   }
   
-  const actionColumn = [
-    {
-      field: "action",
-      headerName: "Action",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <DeleteCell>
-            <div className="deleteButton"
-              onClick={() => handleDelete(params.row.UserId)}
-            >
-              Delete
-            </div>
-          </DeleteCell>
-        );
-      },
-    },
-  ];
 
   return (
     <Container>
       <Wrapper>
         <TitleContainer>
-          <Title>Customers</Title>
-          <Subtitle>View and manage your customers</Subtitle>
+          <Title>Sample Paper Queries</Title>
+          <Subtitle>View all sample paper queries </Subtitle>
         </TitleContainer>
         <StyledBox sx={{ height: 630, width: "100%" }}>
           <StyledDataGrid
-            rows={customerRows}
-            getRowId={(row) => row.UserId}
-            columns={CustomerColumn.concat(actionColumn)}
+            rows={studentRows}
+            getRowId={(row) => row.StudentId}
+            columns={StudentColumn}
             initialState={{
               pagination: {
                 paginationModel: {
@@ -140,4 +122,4 @@ const AdminCustomer = () => {
   );
 };
 
-export default AdminCustomer;
+export default SamplePaper;

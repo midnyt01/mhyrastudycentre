@@ -1,5 +1,5 @@
 const { default: axios } = require("axios");
-const { getAllCourse, getCourseById } = require("../../models/customer.model");
+const { getAllCourse, getCourseById, sendEnquiry, samplePaperQuery } = require("../../models/customer.model");
 
 
 
@@ -27,6 +27,30 @@ async function httpGetCourseById(req, res) {
     }
   });
 }
+
+async function httpSendEnquiry(req, res) {
+  let enquiry = req.body;
+  await sendEnquiry(enquiry, function (err, data) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+}
+
+async function httpSendSamplePaperQuery(req, res) {
+  let query = req.body;
+  await samplePaperQuery(query, function (err, data) {
+    if (err) {
+      res.status(400).json(err);
+    } else {
+      res.status(200).json(data);
+    }
+  });
+}
+
+
 
 
 // async function httpPostContactMe(req, res) {
@@ -58,5 +82,7 @@ async function httpGetTestitmonials (req, res) {
 module.exports = {
   httpGetAllCourses,
   httpGetCourseById,
+  httpSendEnquiry,
+  httpSendSamplePaperQuery,
   httpGetTestitmonials,
 };

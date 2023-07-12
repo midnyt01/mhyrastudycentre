@@ -21,6 +21,9 @@ const {
   httpUpdateCourseById,
   httpDeleteCourseById,
   httpUploadCourseCoverImage,
+  httpGetAllSamplePaperQueries,
+  httpSetCourseActive,
+  httpSetCourseInactive,
 } = require("./admin.controller");
 
 const adminRouter = express.Router();
@@ -52,6 +55,8 @@ adminRouter.get("/courses", httpGetAllCourses);
 adminRouter.get("/courses/:id", httpGetCourseById);
 adminRouter.put("/courses/:id", httpUpdateCourseById);
 adminRouter.delete("/courses/:id", httpDeleteCourseById);
+adminRouter.put("/courseinactive", httpSetCourseInactive);
+adminRouter.put("/courseactive", httpSetCourseActive);
 adminRouter.post("/coursecoverimage", upload.single('file'), httpUploadCourseCoverImage);
 
 
@@ -73,5 +78,6 @@ adminRouter.post("/casestudies", fetchAdmin, httpPostCaseStudy);
 
 adminRouter.get("/customers", fetchAdmin, httpGetAllCustomers)
 adminRouter.get("/leads", fetchAdmin, httpGetAllLeads)
+adminRouter.get("/samplepaper", fetchAdmin, httpGetAllSamplePaperQueries)
 
 module.exports = adminRouter;

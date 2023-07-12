@@ -24,6 +24,8 @@ export const CourseContext = createContext({
   setIncludes: () => {},
   prerequisite: null,
   setPrerequisite: () => {},
+  isActive: null,
+  setIsActive: () => {},
 });
 
 export const CourseProvider = ({ children }) => {
@@ -38,6 +40,7 @@ export const CourseProvider = ({ children }) => {
   const [learning, setLearning] = useState({});
   const [includes, setIncludes] = useState({});
   const [prerequisite, setPrerequisite] = useState({});
+  const [isActive, setIsActive] = useState(null);
 
   useEffect(() => {
     const getCourseDetails = async () => {
@@ -54,6 +57,7 @@ export const CourseProvider = ({ children }) => {
         CourseLearning,
         CourseIncludes,
         Prerequisites,
+        IsActive,
       } = response;
       setCourseTitle(CourseTitle);
       setCourseDescription(Description);
@@ -65,6 +69,7 @@ export const CourseProvider = ({ children }) => {
       setIncludes({ ...CourseIncludes });
       setLearning({ ...CourseLearning });
       setPrerequisite({ ...Prerequisites });
+      setIsActive(IsActive);
     };
     getCourseDetails();
   }, [courseId]);
@@ -92,6 +97,8 @@ export const CourseProvider = ({ children }) => {
     setIncludes,
     prerequisite,
     setPrerequisite,
+    isActive,
+    setIsActive,
   };
 
   return (

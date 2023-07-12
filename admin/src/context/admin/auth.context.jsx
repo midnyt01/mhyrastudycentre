@@ -36,7 +36,7 @@ export const NavList = [
     {
       Id: 7,
       Title: 'Sample Paper',
-      Link : '/admin-customer',
+      Link : '/admin-samplepaper',
       Icon: 'fa-users'
     },
     {

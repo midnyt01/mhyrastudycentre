@@ -1,33 +1,35 @@
-export const  CustomerColumn = [
-  { field: 'UserId', headerName: 'CustomerID', width: 90 },
+export const  StudentColumn = [
+  { field: 'StudentId', headerName: 'StudentID', width: 90 },
   {
-    field: 'FirstName',
-    headerName: 'First name',
+    field: 'FullName',
+    headerName: 'Full Name',
     width: 150,
     editable: false,
   },
   {
-    field: 'LastName',
-    headerName: 'Last name',
+    field: 'Standard',
+    headerName: 'Standard',
+    width: 100,
+    editable: false,
+  },
+  {
+    field: 'PhoneNumber',
+    headerName: 'Phone Number',
+    type: 'text',
     width: 150,
     editable: false,
   },
   {
-    field: 'Email',
-    headerName: 'Email',
-    type: 'number',
+    field: 'Course',
+    headerName: 'Course',
     width: 200,
     editable: false,
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 220,
+    field: 'SchoolName',
+    headerName: 'SchoolName',
+    width: 200,
     editable: false,
-    valueGetter: (params) =>
-      `${params.row.FirstName || ''} ${params.row.LastName || ''}`,
   },
 
 ];
@@ -61,8 +63,15 @@ export const  LeadsColumns = [
       editable: false,
     },
     {
-      field: "Service",
-      headerName: "Service",
+      field: "PhoneNumber",
+      headerName: "PhoneNumber",
+      type: "text",
+      width: 200,
+      editable: false,
+    },
+    {
+      field: "Course",
+      headerName: "Course",
       type: "text",
       width: 100,
       editable: false,

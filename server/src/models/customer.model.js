@@ -17,7 +17,7 @@ const PointsArray = [
 
 
 async function getAllCourse(callback) {
-  let sql = `SELECT CourseId, CourseTitle, MetaDescription, CourseImage FROM courses WHERE IsDeleted = ${0}`
+  let sql = `SELECT CourseId, CourseTitle, MetaDescription, CourseImage FROM courses WHERE IsDeleted = ${0} AND IsActive = ${1}`
   db.query(sql, function(err, result) {
     if (err) {
       callback(err, null);
@@ -28,7 +28,7 @@ async function getAllCourse(callback) {
 }
 
 async function getCourseById(CourseId, callback) {
-  let sql = `SELECT * FROM courses WHERE CourseId = ${CourseId} AND IsDeleted = ${0}`
+  let sql = `SELECT * FROM courses WHERE CourseId = ${CourseId} AND IsDeleted = ${0} AND IsActive = ${1}`
   db.query(sql, function(err, result) {
     if (err) {
       callback(err, null);
@@ -92,10 +92,38 @@ async function getCourseById(CourseId, callback) {
   })
 }
 
+async function sendEnquiry(enquiry, callback) {
+  let sql = "INSERT into leads SET ? ";
+  db.query(sql, enquiry, function(err, result) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, {
+        success: true
+      })
+    }
+  })
+}
+
+async function samplePaperQuery(query, callback) {
+  let sql = "INSERT into sample_paper_queries SET ? ";
+  db.query(sql, query, function(err, result) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, {
+        success: true
+      })
+    }
+  })
+}
+
 
 module.exports = {
   getAllCourse,
-  getCourseById
+  getCourseById,
+  sendEnquiry,
+  samplePaperQuery,
 };
 
 

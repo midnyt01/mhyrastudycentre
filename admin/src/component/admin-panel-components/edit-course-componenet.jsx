@@ -3,8 +3,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { CourseContext } from "../../context/admin/course.context";
-import { httpCreateNewCourse, httpUpdateCourseById } from "../../utils/nodejs/admin";
+import { httpCreateNewCourse, httpDeleteCourseById, httpSetCourseActive, httpSetCourseInactive, httpUpdateCourseById } from "../../utils/nodejs/admin";
 import Topbar from "./admin-topbar/topbar.component";
+import { EditorContext } from "../../context/admin/editor.context";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
   width: 90%;
@@ -24,6 +26,13 @@ const Header = styled.div`
   padding: 15px 0px;
   margin-bottom: 20px;
 `;
+
+const ActionWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 20px;
+`
 
 const PageTitle = styled.h1`
   margin: 0;
@@ -196,6 +205,7 @@ const EditCourseComponent = () => {
   
     
   const { Id } = useParams();
+  const {allCourses, setAllCourse} = useContext(EditorContext)
   console.log(Id)
   const {
     courseTitle,
@@ -219,6 +229,8 @@ const EditCourseComponent = () => {
     prerequisite,
     setPrerequisite,
     setCourseId,
+    isActive,
+    setIsActive
   } = useContext(CourseContext);
 
 
@@ -334,13 +346,47 @@ const EditCourseComponent = () => {
     setPrerequisite({ ...prerequisite, [name]: value });
   };
 
+  //change course activity
+  const updateCourseActivity = async () => {
+    if (isActive) {
+      //then set course inactive
+      let response = await httpSetCourseInactive({CourseId : Id})
+      if (response.success) {
+        setIsActive(false);
+        alert("Course activity changed to InActive");
+      }
+    } else {
+      //set course active
+      let response = await httpSetCourseActive({CourseId : Id}) 
+      if (response.success) {
+        setIsActive(true);
+        alert("Course activity changed to Active");
+      }
+    }
+  }
+
+  const handleDeleteCourse = async () => {
+    
+    let response = await httpDeleteCourseById(Id)
+    if (response.success) {
+      alert("Course Deleted Successfully")
+      navigate("/all-courses")
+      let newCourseArray = allCourses.filter((course) => {return (course.CourseId != Id)});
+      setAllCourse(newCourseArray)
+    }
+  }
+
   return (
     <>
     <Topbar />
     <Wrapper>
       <Header>
-        <PageTitle>Update Course</PageTitle>
+        <PageTitle>Update Course <FontAwesomeIcon style={{color: isActive ? '#4ec000' : 'orange', marginLeft: '20px'}} icon={faCircle} size="xs"/></PageTitle>
+        <ActionWrapper>
         <Action onClick={handlePublish}>Update</Action>
+        <Action onClick={updateCourseActivity}>{isActive ? 'Deactivate' : 'Activate'}</Action>
+        <Action onClick={handleDeleteCourse}>Delete</Action>
+        </ActionWrapper>
       </Header>
       <BodyContainer>
         <TitleContainer>

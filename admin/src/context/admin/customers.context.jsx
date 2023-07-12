@@ -1,30 +1,30 @@
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
-import { httpGetAllCustomersInfo, httpGetAllLeadsInfo } from "../../utils/nodejs/admin";
+import { httpGetAllLeadsInfo, httpGetAllSamplePaperQueries } from "../../utils/nodejs/admin";
 import { AdminAuthContext } from "./auth.context";
 
 export const CustomersContext = createContext({
-  customerRows: [],
-  setCustomerRows: () => {},
+  studentRows: [],
+  setStudentRows: () => {},
   leadRows: [],
   setLeadRows: () => {},
 });
 
 export const CustomersProvider = ({ children }) => {
   const { isAdminLogin } = useContext(AdminAuthContext);
-  const [customerRows, setCustomerRows] = useState([]);
+  const [studentRows, setStudentRows] = useState([]);
   const [leadRows, setLeadRows] = useState([]);
 
   useEffect(() => {
-    const getCustomersArray = async () => {
+    const getStudentsArray = async () => {
       if (isAdminLogin) {
-        const customersArray = await httpGetAllCustomersInfo();
-        console.log(customersArray);
-        setCustomerRows(customersArray);
+        const studentsArray = await httpGetAllSamplePaperQueries();
+        console.log(studentsArray);
+        setStudentRows(studentsArray);
       }
     };
-    getCustomersArray()
+    getStudentsArray()
   }, [isAdminLogin]);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export const CustomersProvider = ({ children }) => {
     getLeadArray()
   }, [isAdminLogin]);
 
-  const value = {leadRows, setLeadRows, customerRows, setCustomerRows };
+  const value = {leadRows, setLeadRows, studentRows, setStudentRows };
 
   return (
     <CustomersContext.Provider value={value}>

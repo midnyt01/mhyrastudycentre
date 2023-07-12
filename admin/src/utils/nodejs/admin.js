@@ -1,5 +1,5 @@
-// const API = 'http://localhost:8005/admin';
-const API = 'https://api.mhyrastudycentre.com/admin'
+const API = 'http://localhost:8005/admin';
+// const API = 'https://api.mhyrastudycentre.com/admin'
 
 
 async function httpCreateAdmin (adminCred) {
@@ -50,6 +50,30 @@ async function httpGetCourseById(Id) {
         method: "get",
     })
     return await response.json()
+}
+
+async function httpSetCourseInactive (CourseId) {
+    const response = await fetch(`${API}/courseinactive`, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+          },
+        body: JSON.stringify(CourseId)
+    })
+    const data = await response.json()
+    return data;
+}
+
+async function httpSetCourseActive (CourseId) {
+    const response = await fetch(`${API}/courseactive`, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+          },
+        body: JSON.stringify(CourseId)
+    })
+    const data = await response.json()
+    return data;
 }
 
 async function httpDeleteCourseById(Id) {
@@ -124,9 +148,9 @@ async function httpGetAllLeadsInfo() {
     return await response.json()
 }
 
-async function httpGetAllCustomersInfo() {
+async function httpGetAllSamplePaperQueries() {
     const adminToken = localStorage.getItem("admin")
-    const response = await fetch(`${API}/customers`, {
+    const response = await fetch(`${API}/samplepaper`, {
         method: "get",
         headers: {
             "auth-token": `${adminToken}`
@@ -141,13 +165,15 @@ export {
     httpCreateNewCourse,
     httpGetAllCourses,
     httpGetCourseById,
+    httpSetCourseInactive,
+    httpSetCourseActive,
     httpDeleteCourseById,
     httpUpdateCourseById,
-    
+
 
     httpPostBlog,
     httpPostCaseStudy,
     httpGetAllCustomersDetails,
     httpGetAllLeadsInfo,
-    httpGetAllCustomersInfo,
+    httpGetAllSamplePaperQueries,
 }
