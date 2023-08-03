@@ -58,6 +58,7 @@ const InnerWrapper = styled.div`
 
 const HeroBannerContainer = styled.div`
 margin-top: -30px;
+line-height:1.2;
 `;
 
 const Title = styled.h1`

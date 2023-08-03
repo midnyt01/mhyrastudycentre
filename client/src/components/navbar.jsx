@@ -198,10 +198,12 @@ const Navbar = () => {
             </ListItem>
             <AboutCard />
             <ListItem>
-              <ContactButtonLink><a href="tel:9890788729">
+            <a href="tel:8788080376">
+              <ContactButtonLink>
                 <FontAwesomeIcon icon={faPhone} size="xl" />
-                </a>&nbsp; Call Us
+                &nbsp; Call Us
               </ContactButtonLink>
+              </a>
             </ListItem>
           </UnorderedList>
         </NavList>

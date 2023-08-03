@@ -31,7 +31,12 @@ const ActionWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  column-gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  @media (min-width: 800px) {
+    column-gap: 20px;
+
+  }
 `
 
 const PageTitle = styled.h1`

@@ -1,8 +1,9 @@
-
 import {
+  faFacebook,
   faInstagram,
   faTwitter,
   faWhatsapp,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faAt,
@@ -12,7 +13,7 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import MainLogo from "../assets/mhyra-logo.png";
@@ -80,7 +81,7 @@ const NavItems = styled.div`
 
 const SubNavItems = styled.div`
   font-size: 17px;
-  margin:  10px  0 10px 10px;
+  margin: 10px 0 10px 10px;
   a {
     color: black !important;
   }
@@ -151,8 +152,8 @@ const Sidebar = () => {
   };
 
   const toggleDropDown = () => {
-    setIsDropDownOpen(!isDropDownOpen)
-  }
+    setIsDropDownOpen(!isDropDownOpen);
+  };
 
   return (
     <Container isSidebarOpen={isSidebarOpen} ref={containerRef}>
@@ -164,12 +165,14 @@ const Sidebar = () => {
           <img src={MainLogo} alt="main-logo" />
         </MainLogoContainer>
         <NavItemContainer>
-        <NavItems>
-              <ContactButtonLink><a href="tel:9890788729">
+          <NavItems>
+            <ContactButtonLink>
+              <a href="tel:9890788729">
                 <FontAwesomeIcon icon={faPhone} size="xl" />
-                </a>&nbsp; Call Us
-              </ContactButtonLink>
-            </NavItems>
+              </a>
+              &nbsp; Call Us
+            </ContactButtonLink>
+          </NavItems>
           <NavItems onClick={toggleSidebar}>
             <Link to="/">Home</Link>
           </NavItems>
@@ -181,7 +184,11 @@ const Sidebar = () => {
           </NavItems>
           <NavItems onClick={toggleDropDown}>
             <Link to="#">
-              About <FontAwesomeIcon icon={ isDropDownOpen ? faChevronUp : faChevronDown} style={{marginLeft: '7px'}}/>
+              About{" "}
+              <FontAwesomeIcon
+                icon={isDropDownOpen ? faChevronUp : faChevronDown}
+                style={{ marginLeft: "7px" }}
+              />
             </Link>
             {isDropDownOpen && (
               <>
@@ -190,9 +197,7 @@ const Sidebar = () => {
                 </SubNavItems>
 
                 <SubNavItems onClick={toggleSidebar}>
-                  <Link to="/about/visionandmission">
-                    Vission And Mission
-                  </Link>
+                  <Link to="/about/visionandmission">Vission And Mission</Link>
                 </SubNavItems>
               </>
             )}
@@ -205,16 +210,30 @@ const Sidebar = () => {
         </PoliciesContainer> */}
         <SocialContainer>
           <Social>
-            <FontAwesomeIcon icon={faWhatsapp} size="xl" />
+            <a
+              target="_blank"
+              href="https://instagram.com/mhyrastudycentre?igshid=MzRlODBiNWFlZA=="
+            >
+              <FontAwesomeIcon icon={faInstagram} size="xl" />
+            </a>
           </Social>
           <Social>
-            <FontAwesomeIcon icon={faInstagram} size="xl" />
+            <a target="_blank" href="https://youtube.com/@MhyraStudyCentre">
+              <FontAwesomeIcon icon={faYoutube} size="xl" />
+            </a>
           </Social>
           <Social>
-            <FontAwesomeIcon icon={faTwitter} size="xl" />
+            <a target="_blank" href="https://twitter.com/mhyrapvtltd?s=11">
+              <FontAwesomeIcon icon={faTwitter} size="xl" />
+            </a>
           </Social>
           <Social>
-            <FontAwesomeIcon icon={faAt} size="xl" />
+            <a
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=100092290983203&mibextid=LQQJ4d"
+            >
+              <FontAwesomeIcon icon={faFacebook} size="xl" />
+            </a>
           </Social>
         </SocialContainer>
       </Wrapper>

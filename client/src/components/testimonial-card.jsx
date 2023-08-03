@@ -12,6 +12,7 @@ const Container = styled.div`
   margin: 10px 20px;
   background-color: white;
   padding: 40px 20px;
+
   @media (min-width: 800px) {
     width: 400px;
   }

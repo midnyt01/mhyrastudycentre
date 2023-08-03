@@ -160,9 +160,9 @@ const Skills = () => {
                 <LeftSubHead>
                     Combined With the Proven Teaching Methods for Easy Understanding & Technical Concepts
                 </LeftSubHead>
-                <LeftButton>
+                {/* <LeftButton>
                     What We Teach
-                </LeftButton>
+                </LeftButton> */}
             </LeftContainer>
             </Fade>
             <Zoom>

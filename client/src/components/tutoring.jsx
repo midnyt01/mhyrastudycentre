@@ -1,6 +1,6 @@
 import { faBookOpen, faFlaskVial, faGraduationCap, faPenRuler } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -125,10 +125,10 @@ letter-spacing: 0.3px;
 
 const Tutoring = () => {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleOnClickRouteChange = () => {
-        // navigate('/courses')
+        navigate('/courses')
     }
 
   return (

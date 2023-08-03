@@ -6,9 +6,14 @@ import {
   faFacebook,
   faInstagram,
   faLinkedin,
+  faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { faLocation, faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocation,
+  faMailBulk,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -41,7 +46,7 @@ const LogoWrapper = styled.div`
   display: flex;
   column-gap: 20px;
   img {
-    width: 100px;
+    width: 40%;
   }
 `;
 
@@ -73,8 +78,7 @@ const ExtraLinksContainer = styled.div`
   }
 `;
 
-const SectionWrapper = styled.div`
-`;
+const SectionWrapper = styled.div``;
 
 const LinkHeader = styled.div`
   font-size: 20px;
@@ -122,54 +126,68 @@ const Footer = () => {
               Centre
             </LogoTitle>
           </LogoWrapper>
-          <LogoSubtitle>
-            Discuss with the tutee the amount of time necessary to complete each
-            part of their task.
-          </LogoSubtitle>
+          <LogoSubtitle>Truly Education</LogoSubtitle>
         </LogoContainer>
         <ExtraLinksContainer>
           <SectionWrapper flex={2}>
             <LinkHeader>Useful Links</LinkHeader>
-            <LinkItem href="/"> Free Consultation</LinkItem>
-            <LinkItem href="/"> Visit Us</LinkItem>
-            <LinkItem href="/"> Chat With Us</LinkItem>
+            <LinkItem to="/"> Home</LinkItem>
+            <LinkItem to="/courses"> Courses</LinkItem>
+            <LinkItem to="/about/aboutus"> About us</LinkItem>
           </SectionWrapper>
 
-          <SectionWrapper style={{gridColumn: 'span 2'}}>
+          <SectionWrapper style={{ gridColumn: "span 2" }}>
             <LinkHeader>Contacts</LinkHeader>
             <LinkItem href="/">
               {" "}
-              <FontAwesomeIcon icon={faPhone} style={{marginRight: '10px'}} /><a href="tel:9890788729"> 8788080376, 9890788729{" "}</a>
+              <FontAwesomeIcon icon={faPhone} style={{ marginRight: "10px" }} />
+              <a href="tel:8788080376"> 8788080376 |</a>
+              <a href="tel:9890788729"> 9890788729 </a>
+            </LinkItem>
+            <LinkItem >
+            <a href="mailto:info@mhyrastudycentre.com">
+              {" "}
+              <FontAwesomeIcon
+                icon={faMailBulk}
+                style={{ marginRight: "10px" }}
+              />{" "}
+              info@mhyrastudycentre.com{" "}
+              </a>
             </LinkItem>
             <LinkItem href="/">
               {" "}
-              <FontAwesomeIcon icon={faMailBulk} style={{marginRight: '10px'}} /> info@mhyrastudycentre.com{" "}
-            </LinkItem>
-            <LinkItem href="/">
-              {" "}
-              <FontAwesomeIcon icon={faLocation} style={{marginRight: '10px'}} /><a href="https://www.google.com/maps/place/Friends+Colony,+KT+Nagar,+Nagpur,+Maharashtra+440013/@21.174409,79.0383259,17z/data=!3m1!4b1!4m10!1m2!2m1!1sPlot+22,+2nd+Floor,+Above+Canara+Bank,+Friends+Colony,+Katol+Rd+Nagpur-+440013!3m6!1s0x3bd4c1b7a255bfcf:0x395f022fccccd3c7!8m2!3d21.1736783!4d79.0427069!15sCk5QbG90IDIyLCAybmQgRmxvb3IsIEFib3ZlIENhbmFyYSBCYW5rLCBGcmllbmRzIENvbG9ueSwgS2F0b2wgUmQgTmFncHVyLSA0NDAwMTMiA4gBAZIBDG5laWdoYm9yaG9vZOABAA!16s%2Fg%2F1pzr1wg33?entry=ttu">Plot 22, 2nd Floor, Above Canara Bank, Friends Colony, Katol Rd Nagpur- 440013</a>
+              <FontAwesomeIcon
+                icon={faLocation}
+                style={{ marginRight: "10px" }}
+              />
+              <a href="https://goo.gl/maps/xAJPfWTdKNMPcuh47">
+                Plot 22, 2nd Floor, Above Canara Bank, Friends Colony, Katol Rd
+                Nagpur- 440013
+              </a>
             </LinkItem>
           </SectionWrapper>
 
-          <SectionWrapper >
+          <SectionWrapper>
             <LinkHeader>Follow Us</LinkHeader>
             <SocialsContainer>
               <SocialWrapper>
-                <FontAwesomeIcon icon={faInstagram} size="xl" />
-                <FontAwesomeIcon icon={faYoutube} size="xl" />
-                <FontAwesomeIcon icon={faLinkedin} size="xl" />
-                <FontAwesomeIcon icon={faFacebook} size="xl" />
+                <a target="_blank" href="https://instagram.com/mhyrastudycentre?igshid=MzRlODBiNWFlZA=="><FontAwesomeIcon icon={faInstagram} size="xl" /></a>
+                <a target="_blank" href="https://youtube.com/@MhyraStudyCentre"><FontAwesomeIcon icon={faYoutube} size="xl" /></a>
+                <a target="_blank" href="https://twitter.com/mhyrapvtltd?s=11"><FontAwesomeIcon icon={faTwitter} size="xl" /></a>
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100092290983203&mibextid=LQQJ4d"><FontAwesomeIcon icon={faFacebook} size="xl" /></a>
               </SocialWrapper>
             </SocialsContainer>
           </SectionWrapper>
         </ExtraLinksContainer>
       </Wrapper>
+        <div style={{display: 'flex', justifyContent: "space-between", alignItems: "center", width: "85%", margin: "auto", marginTop: "20px" }}>
       <LinkItem
         href="/"
-        style={{ width: "85%", margin: "auto", marginTop: "20px" }}
       >
         Design & Developed by Nitrosk- Web & AI Solutions
       </LinkItem>
+      <p>© 2023 Mhyra Study Centre Pvt. Ltd</p> 
+      </div>
     </Container>
   );
 };

@@ -37,6 +37,34 @@ const MainContainer = styled.div`
   padding-bottom: 70px;
 `;
 
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
+`;
+
+const ContactFormWrapper = styled.div``;
+
+const YtWrapperMobile = styled.div`
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  @media (min-width: 800px) {
+    display: none;
+  }
+`;
+const YtWrapperDesktop = styled.div`
+  display: none;
+  @media (min-width: 800px) {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
 const Wrapper = styled.div`
   width: 90%;
   margin: auto;
@@ -273,7 +301,19 @@ const ContactMeForm = () => {
     <MainContainer>
       <Wrapper>
         <Title>Contact us</Title>
-        {message && <p style={{textAlign: 'center', color: message.success ? 'green' : 'red'}}>{message.text}</p>}
+        <FlexContainer>
+          <YtWrapperMobile>
+          <iframe width="290" height="170"
+          src="https://www.youtube.com/embed/Ilf08K1NxMg?loop=1&controls=0">
+        </iframe> 
+          </YtWrapperMobile>
+          <YtWrapperDesktop>
+          <iframe width="550" height="313"
+          src="https://www.youtube.com/embed/Ilf08K1NxMg?loop=1&controls=0">
+        </iframe> 
+          </YtWrapperDesktop>
+          <ContactFormWrapper>
+          {message && <p style={{textAlign: 'center', color: message.success ? 'green' : 'red'}}>{message.text}</p>}
         {/* <ContactForm onSubmit={handleOnSubmitForm}>
                 <FormInput
                     placeholder="Full Name"
@@ -414,6 +454,8 @@ const ContactMeForm = () => {
             </StyledBox>
           </Box>
         </Container>
+          </ContactFormWrapper>
+        </FlexContainer>
       </Wrapper>
       <HR />
       {/* <SocialsContainer>

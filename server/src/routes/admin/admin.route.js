@@ -43,6 +43,12 @@ cloudinary.config({
     allowed_formats: ['jpg', 'png', 'gif']
   }
 });
+
+const middleware  = (req, res, next) => {
+  console.log('reaching');
+  next();
+}
+
 const upload = multer({ storage: storage });
 
 adminRouter.post("/createadmin", httpCreateAdminAccount);
@@ -57,7 +63,7 @@ adminRouter.put("/courses/:id", httpUpdateCourseById);
 adminRouter.delete("/courses/:id", httpDeleteCourseById);
 adminRouter.put("/courseinactive", httpSetCourseInactive);
 adminRouter.put("/courseactive", httpSetCourseActive);
-adminRouter.post("/coursecoverimage", upload.single('file'), httpUploadCourseCoverImage);
+adminRouter.post("/coursecoverimage", middleware, upload.single('file'), httpUploadCourseCoverImage);
 
 
 
