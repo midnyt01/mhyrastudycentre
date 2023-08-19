@@ -160,7 +160,7 @@ const Footer = () => {
                 icon={faLocation}
                 style={{ marginRight: "10px" }}
               />
-              <a href="https://goo.gl/maps/xAJPfWTdKNMPcuh47">
+              <a href="https://www.google.com/maps/place/Mhyra+Study+Centre+Private+Limited/@21.1780556,79.0455585,330m/data=!3m1!1e3!4m6!3m5!1s0x3bd4c1c3be86c5b3:0x2745a0895294ee0f!8m2!3d21.177684!4d79.0454535!16s%2Fg%2F11v165p_lj?entry=ttu" target="_blank">
                 Plot 22, 2nd Floor, Above Canara Bank, Friends Colony, Katol Rd
                 Nagpur- 440013
               </a>

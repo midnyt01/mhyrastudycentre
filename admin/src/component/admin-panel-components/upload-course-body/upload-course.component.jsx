@@ -251,10 +251,10 @@ const UploadCourseBody = () => {
     console.log(formData)
     //if cover image form is from blog then do this
     try {
-        let response = await fetch('https://api.mhyrastudycentre.com/admin/coursecoverimage', {
-            method: 'POST',
-            body: formData
-          })
+          let response = await fetch('https://api.mhyrastudycentre.com/admin/coursecoverimage', {
+              method: 'POST',
+              body: formData
+            })
           let data = await response.json()
           console.log(data.url);
           setCoverImageUrl(data.url);
