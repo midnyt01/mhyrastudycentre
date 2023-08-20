@@ -10,8 +10,6 @@ app.use(cors({
         'http://localhost:3001',
         'https://mhyrastudycentre.com',
         'https://admin.mhyrastudycentre.com',
-        'https://main.mhyrastudycentre.com',
-        'https://adminpanel.mhyrastudycentre.com'
     ],
 }))
 
