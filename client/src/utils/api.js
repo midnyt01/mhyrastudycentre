@@ -1,5 +1,5 @@
 // const API = 'http://localhost:8005/customer';
-const API = 'https://api.mhyrastudycentre.com/customer';
+const API = 'https://api.mhyrastudycentre.in/customer';
 
 
 async function httpGetAllCourses() {
