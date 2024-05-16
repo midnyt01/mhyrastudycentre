@@ -23,6 +23,7 @@ import UploadCourse from "./routes/admin/upload-course/upload-course";
 import AllCourses from "./routes/admin/see-all-course/see-all-courses";
 import EditCourse from "./routes/admin/edit-course";
 import AdminSamplePapers from "./routes/admin/admin-samplepapers/admin-sample-papercomponent";
+import AdminManagement from "./routes/admin/admin-management";
 // import SellerCreateOrder from "./routes/seller/seller-create-order/seller-create-order.component";
 
 library.add(fas);
@@ -153,6 +154,14 @@ function App() {
         element={
           <ProtectedRoute>
             <SiteSettingPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin-management"
+        element={
+          <ProtectedRoute>
+            <AdminManagement />
           </ProtectedRoute>
         }
       />

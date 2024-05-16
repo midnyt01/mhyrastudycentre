@@ -26,6 +26,29 @@ async function httpLoginAdmin (adminCred) {
     return admin
 }
 
+async function httpGetAllAdmins() {
+    const adminToken = localStorage.getItem("admin")
+    console.log("sending request")
+    const response = await fetch(`${API}/admins`, {
+        method: "get",
+        headers: {
+            "auth-token": `${adminToken}`
+        }
+    })
+    return await response.json()
+}
+async function httpDeleteAdminById (AdminId) {
+    const adminToken = localStorage.getItem("admin")
+    const response = await fetch(`${API}/admins/${AdminId}`, {
+        method: "delete",
+        headers: {
+            "auth-token": `${adminToken}`
+          }
+    })
+    const data = await response.json()
+    return data;
+}
+
 async function httpCreateNewCourse (courseDetails) {
     const response = await fetch(`${API}/create-new-course`, {
         method: "post",
@@ -162,6 +185,8 @@ async function httpGetAllSamplePaperQueries() {
 export {
     httpCreateAdmin,
     httpLoginAdmin,
+    httpGetAllAdmins,
+    httpDeleteAdminById,
     httpCreateNewCourse,
     httpGetAllCourses,
     httpGetCourseById,
