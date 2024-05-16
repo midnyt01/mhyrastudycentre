@@ -16,6 +16,8 @@ const {
   getAllSamplePaperQueries,
   setCourseInactive,
   setCourseActive,
+  getAllAdmins,
+  removeAdminById,
 } = require("../../models/admin.model");
 
 async function httpCreateAdminAccount(req, res) {
@@ -209,6 +211,25 @@ async function httpGetAllSamplePaperQueries (req, res) {
     }
   })
 }
+async function httpGetAllAdmins (req, res) {
+  await getAllAdmins(function(err, data) {
+    if (err) {
+      res.status(400).json(err)
+    } else {
+      res.status(200).json(data)
+    }
+  })
+}
+async function httpRemoveAdminById (req, res) {
+  let AdminId = req.params.id;
+  await removeAdminById(AdminId, function(err, data) {
+    if (err) {
+      res.status(400).json(err)
+    } else {
+      res.status(200).json(data)
+    }
+  })
+}
 
 
 async function httpUploadCourseCoverImage (req, res) {
@@ -246,6 +267,9 @@ module.exports = {
   httpGetAllCustomers,
   httpGetAllLeads,
   httpGetAllSamplePaperQueries,
+  httpGetAllAdmins,
+  httpRemoveAdminById,
+
   httpUploadCourseCoverImage,
   httpUploadCaseStudyCoverImage,
 };

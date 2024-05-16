@@ -444,6 +444,30 @@ async function getAllSamplePaperQueries (callback) {
   })
 }
 
+async function getAllAdmins (callback) {
+  let sql = 'SELECT AdminId, FirstName, Email From admins'
+  db.query(sql, function(err, result) {
+    if (err) {
+      callback(err, null)
+    } else {
+      callback(null, result)
+    }
+  })
+}
+
+async function removeAdminById (AdminId, callback) {
+  let sql = `DELETE from admins WHERE AdminId = ${AdminId}`
+  db.query(sql, function(err, result) {
+    if (err) {
+      callback(err, null)
+    } else {
+      callback(null, {
+        success: true
+      })
+    }
+  })
+}
+
 module.exports = {
   createAdminAccount,
   loginInAdmin,
@@ -460,4 +484,6 @@ module.exports = {
   getAllCustomers,
   getAllLeadsInfo,
   getAllSamplePaperQueries,
+  getAllAdmins,
+  removeAdminById,
 };

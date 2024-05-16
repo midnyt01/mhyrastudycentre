@@ -24,6 +24,8 @@ const {
   httpGetAllSamplePaperQueries,
   httpSetCourseActive,
   httpSetCourseInactive,
+  httpGetAllAdmins,
+  httpRemoveAdminById,
 } = require("./admin.controller");
 
 const adminRouter = express.Router();
@@ -80,5 +82,9 @@ adminRouter.post("/casestudies", fetchAdmin, httpPostCaseStudy);
 adminRouter.get("/customers", fetchAdmin, httpGetAllCustomers)
 adminRouter.get("/leads", fetchAdmin, httpGetAllLeads)
 adminRouter.get("/samplepaper", fetchAdmin, httpGetAllSamplePaperQueries)
+
+//admins
+adminRouter.get("/admins", fetchAdmin, httpGetAllAdmins);
+adminRouter.delete("/admins/:id", fetchAdmin, httpRemoveAdminById);
 
 module.exports = adminRouter;
