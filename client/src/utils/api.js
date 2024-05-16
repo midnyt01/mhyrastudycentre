@@ -1,7 +1,7 @@
 // const API = 'http://localhost:8005/customer';
 const API = 'https://api.mhyrastudycentre.in/customer';
 
-
+// api calls
 async function httpGetAllCourses() {
     const response = await fetch(`${API}/courses`, {
         method: "get",
